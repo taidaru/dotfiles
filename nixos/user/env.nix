@@ -7,6 +7,7 @@
     PATH = [
       "${XDG_BIN_HOME}"
       "$HOME/.cargo/bin"
+      "$HOME/go/bin"
     ];
   };
 }
