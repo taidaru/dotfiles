@@ -7,6 +7,7 @@
   virtualisation = {
     # spiceUSBRedirection.enable = true;
     docker.enable = true;
+    docker.enableOnBoot = false;
 
     # libvirtd = {
     #   enable = true;

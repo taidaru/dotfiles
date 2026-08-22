@@ -2,14 +2,14 @@ inputs@{ nixpkgs, ... }:
 let
   lib = nixpkgs.lib;
 
-  versions = import ./versions.nix;
-  hosts = import ./hosts.nix;
-  users = import ./users.nix;
+  subdirs = dir: lib.attrNames (lib.filterAttrs (_: t: t == "directory") (builtins.readDir dir));
+
+  hosts = lib.genAttrs (subdirs ../hosts) (name: import ../hosts/${name}/meta.nix);
+  users = lib.genAttrs (subdirs ../users) (name: import ../users/${name}/user.nix);
 
   mkHost = import ./lib/mkHost.nix {
     inherit
       inputs
-      versions
       hosts
       users
       ;

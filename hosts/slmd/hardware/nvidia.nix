@@ -1,6 +1,13 @@
 {
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  boot.initrd.kernelModules = [
+    "nvidia"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ];
+
   hardware = {
     graphics = {
       enable = true;
@@ -12,7 +19,6 @@
       open = false;
 
       prime = {
-        # lspci | grep -E "VGA|3D"
         nvidiaBusId = "PCI:1:0:0";
         intelBusId = "PCI:0:2:0";
       };

@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   hostUsers,
   usersConfig,
@@ -23,9 +24,16 @@ in
 
   users.defaultUserShell = pkgs.zsh;
 
-  services.getty.autologinUser =
+  services.getty =
     let
       auto = builtins.filter (name: usersConfig.${name}.autologin or false) hostUsers;
     in
-    if auto == [ ] then null else builtins.head auto;
+    {
+      greetingLine = lib.mkForce "";
+      helpLine = lib.mkForce "";
+    }
+    // lib.optionalAttrs (auto != [ ]) {
+      extraArgs = [ "--skip-login" ];
+      loginOptions = "-f ${builtins.head auto}";
+    };
 }

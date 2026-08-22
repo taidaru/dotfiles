@@ -1,9 +1,10 @@
-{ stateVersion, hostname, ... }:
+{ hostname, ... }:
 
 {
   imports = [
     ./hardware
     ./config/power.nix
+    ./config/monitors.nix
     ../../nixos/base.nix
     ../../nixos/desktop.nix
   ];
@@ -12,5 +13,5 @@
 
   networking.hostName = hostname;
 
-  system.stateVersion = stateVersion;
+  system.stateVersion = "25.11";
 }

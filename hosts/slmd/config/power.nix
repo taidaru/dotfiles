@@ -4,6 +4,8 @@ with lib;
 
 let
   powerSave = config.my.powerSave;
+  intelCard = "/dev/dri/by-path/pci-0000:00:02.0-card";
+  nvidiaCard = "/dev/dri/by-path/pci-0000:01:00.0-card";
 in
 {
   options.my.powerSave = mkOption {
@@ -34,13 +36,13 @@ in
       environment.variables = {
         LIBVA_DRIVER_NAME = "intel";
         __GLX_VENDOR_LIBRARY_NAME = "mesa";
-        AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
+        MY_AQ_DRM_ORDER = "${intelCard} ${nvidiaCard}";
       };
     })
 
     (mkIf (!powerSave) {
-      powerManagement.enable = true;
-      powerManagement.cpuFreqGovernor = "performance";
+      powerManagement.enable = false;
+      # powerManagement.cpuFreqGovernor = "performance";
       # powerManagement.scsiLinkPolicy = "max_performance";
 
       services.tlp.enable = false;
@@ -58,7 +60,7 @@ in
       environment.variables = {
         LIBVA_DRIVER_NAME = "nvidia";
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-        AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
+        MY_AQ_DRM_ORDER = "${nvidiaCard} ${intelCard}";
       };
     })
   ];

@@ -5,4 +5,6 @@
     ./hardware/bluetooth.nix
     ./hardware/udisks.nix
   ];
+
+  hardware.graphics.enable32Bit = true;
 }

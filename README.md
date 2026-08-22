@@ -2,14 +2,6 @@
 
 Personal NixOS flake configuration.
 
-## Stack
-
-- **NixOS** (nixos-26.05) + **nixpkgs-unstable**
-- **home-manager** for user-level config
-- **stylix** for theming
-- **Hyprland** desktop with **caelestia shell**
-- Host: `slmd`
-
 ## Layout
 
 ```

@@ -8,11 +8,11 @@
   home.packages =
     with pkgs;
     [
-      bottles
       # protonup-qt
       # lutris
       winetricks
       wine
+      mangohud
       # (wineWowPackages.waylandFull.override {
       #   wineBuild = "wineWow";
       # })

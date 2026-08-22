@@ -2,6 +2,8 @@
   networking.networkmanager.enable = true;
   # programs.nm-applet.enable = true;
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   networking.firewall = {
     enable = true;
     # allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];

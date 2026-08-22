@@ -1,6 +1,5 @@
 {
   inputs,
-  versions,
   hosts,
   users,
 }:
@@ -24,7 +23,6 @@ lib.nixosSystem {
     inherit inputs hostname unstable;
     hostUsers = host.users;
     usersConfig = users;
-    stateVersion = versions.system;
   };
 
   modules = [
@@ -37,7 +35,6 @@ lib.nixosSystem {
         backupFileExtension = "backup";
         extraSpecialArgs = {
           inherit inputs unstable;
-          homeStateVersion = versions.home;
         };
         users = lib.genAttrs host.users (name: import ../../users/${name}/home.nix);
       };
