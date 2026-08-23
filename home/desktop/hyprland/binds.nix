@@ -4,7 +4,9 @@
     bind = [
       # Apps
       "$mainMod,       Q, exec, $terminal"
-      "$mainMod,       R, global, caelestia:launcher"
+      "$mainMod,       R, exec, noctalia msg panel-toggle launcher"
+      "$mainMod,       A, exec, noctalia msg panel-toggle control-center"
+      "$mainMod,       Escape, exec, noctalia msg session"
       "$mainMod,       D, exec, pkill -SIGUSR1 wayscriber"
       "$mainMod,       E, exec, $fileManager"
       "$mainMod,       V, exec, cliphist list | $menu --dmenu | cliphist decode | wl-copy"
@@ -15,8 +17,7 @@
       # Window control
       "$mainMod,       C, killactive,"
       "$mainMod,       F, togglefloating,"
-      "$mainMod,       P, pin,"
-
+      "$mainMod,       T, pin,"
       # Scratchpad
       "$mainMod,       S, togglespecialworkspace,  magic"
       "$mainMod SHIFT, S, movetoworkspace, special:magic"
@@ -72,27 +73,21 @@
 
     bindel = [
       # Volume keys
-      ",XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-      ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-      ",XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ",XF86AudioMicMute,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      ",XF86AudioRaiseVolume,  exec, noctalia msg volume-up"
+      ",XF86AudioLowerVolume,  exec, noctalia msg volume-down"
+      ",XF86AudioMute,         exec, noctalia msg volume-mute"
+      ",XF86AudioMicMute,      exec, noctalia msg mic-mute"
       # Brightness keys
-      "$mainMod, bracketright, exec, brightnessctl s 10%+"
-      "$mainMod, bracketleft,  exec, brightnessctl s 10%-"
+      "$mainMod, bracketright, exec, noctalia msg brightness-up"
+      "$mainMod, bracketleft,  exec, noctalia msg brightness-down"
     ];
 
     bindl = [
       # Media keys
-      ", XF86AudioNext,  exec, playerctl next"
-      ", XF86AudioPause, exec, playerctl play-pause"
-      ", XF86AudioPlay,  exec, playerctl play-pause"
-      ", XF86AudioPrev,  exec, playerctl previous"
+      ", XF86AudioNext,  exec, noctalia msg media next"
+      ", XF86AudioPause, exec, noctalia msg media play-pause"
+      ", XF86AudioPlay,  exec, noctalia msg media play-pause"
+      ", XF86AudioPrev,  exec, noctalia msg media previous"
     ];
-
-    exec = [
-      "hyprctl dispatch submap global"
-    ];
-
-    submap = "global";
   };
 }

@@ -3,8 +3,7 @@
     "nix-command"
     "flakes"
   ];
-
-  # ponytail: единая точка nixpkgs.config — HM с useGlobalPkgs берёт pkgs отсюда
+  
   nixpkgs.config = {
     allowUnfree = true;
     android_sdk.accept_license = true;

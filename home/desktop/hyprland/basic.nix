@@ -36,7 +36,7 @@
         active_opacity = 1.0;
         inactive_opacity = 1.0;
         shadow = {
-          enabled = false;
+          enabled = true;
         };
         blur = {
           enabled = true;

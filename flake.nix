@@ -10,18 +10,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:danth/stylix/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    caelestia-cli = {
-      url = "github:caelestia-dots/cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

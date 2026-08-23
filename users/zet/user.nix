@@ -9,5 +9,4 @@
     "docker"
   ];
   shell = "zsh";
-  autologin = true;
 }

@@ -17,7 +17,8 @@
       grimblast
       wl-clipboard
       cliphist
-
+      alacritty
+      pulseaudio
       # libnotify
     ]
     ++ (with unstable; [

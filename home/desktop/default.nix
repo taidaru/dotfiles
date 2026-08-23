@@ -1,7 +1,7 @@
 {
   imports = [
     ./hyprland
-    ./caelestia.nix
+    ./noctalia.nix
     ./theme.nix
     ./fonts.nix
     ./packages.nix

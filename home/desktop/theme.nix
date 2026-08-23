@@ -1,13 +1,55 @@
-{ pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
   imports = [ inputs.stylix.homeModules.stylix ];
 
   home.packages = with pkgs; [
     papirus-icon-theme
-    orchis-theme
     lxappearance
     qt6Packages.qt6ct
+    glib 
+    gsettings-desktop-schemas
   ];
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
+    font = {
+      name = "Inter";
+      size = 11;
+    };
+    gtk3 = {
+      extraConfig.gtk-application-prefer-dark-theme = true;
+
+      extraCss = ''
+        @import url("noctalia.css");
+      '';
+    };
+    gtk4 = {
+      theme = null;
+      extraConfig.gtk-application-prefer-dark-theme = true;
+      extraCss = ''
+        @import url("noctalia.css");
+      '';
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+  };
+
+  home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
+
+  xdg.configFile."qt6ct/qt6ct.conf".text = ''
+    [Appearance]
+    custom_palette=true
+    color_scheme_path=${config.xdg.configHome}/qt6ct/colors/noctalia.conf
+    standard_dialogs=default
+    style=Fusion
+  '';
 
   stylix = {
     enable = true;
@@ -15,14 +57,6 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/hardhacker.yaml";
 
     autoEnable = false;
-    targets = {
-      qt.enable = true;
-      neovim.enable = true;
-      alacritty.enable = true;
-      gtk.enable = true;
-      hyprland.enable = true;
-      bat.enable = true;
-    };
 
     cursor = {
       name = "DMZ-Black";

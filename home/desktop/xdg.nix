@@ -6,17 +6,11 @@
     pipewire
   ];
 
+
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
   xdg = {
     enable = true;
-    portal = {
-      enable = true;
-      extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-wlr
-    ];
-    };
-
-
     configHome = "${config.home.homeDirectory}/.config";
     dataHome = "${config.home.homeDirectory}/.local/share";
     cacheHome = "${config.home.homeDirectory}/.cache";
@@ -76,11 +70,11 @@
         "text/plain" = "featherpad.desktop";
         "application/octet-stream" = "featherpad.desktop";
 
-        "x-scheme-handler/http" = "firefox.desktop";
-        "x-scheme-handler/https" = "firefox.desktop";
-        "x-scheme-handler/ftp" = "firefox.desktop";
-        "text/html" = "firefox.desktop";
-        "application/xhtml+xml" = "firefox.desktop";
+        "x-scheme-handler/http" = "chromium.desktop";
+        "x-scheme-handler/https" = "chromium.desktop";
+        "x-scheme-handler/ftp" = "chromium.desktop";
+        "text/html" = "chromium.desktop";
+        "application/xhtml+xml" = "chromium.desktop";
       };
     };
 

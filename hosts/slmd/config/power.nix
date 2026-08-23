@@ -4,8 +4,10 @@ with lib;
 
 let
   powerSave = config.my.powerSave;
-  intelCard = "/dev/dri/by-path/pci-0000:00:02.0-card";
-  nvidiaCard = "/dev/dri/by-path/pci-0000:01:00.0-card";
+  intelPath = "pci-0000:00:02.0";
+  nvidiaPath = "pci-0000:01:00.0";
+  intelCard = "/dev/dri/gpu-intel";
+  nvidiaCard = "/dev/dri/gpu-nvidia";
 in
 {
   options.my.powerSave = mkOption {
@@ -15,6 +17,13 @@ in
   };
 
   config = mkMerge [
+
+    {
+      services.udev.extraRules = ''
+        SUBSYSTEM=="drm", KERNEL=="card*", ENV{ID_PATH}=="${intelPath}", SYMLINK+="dri/gpu-intel"
+        SUBSYSTEM=="drm", KERNEL=="card*", ENV{ID_PATH}=="${nvidiaPath}", SYMLINK+="dri/gpu-nvidia"
+      '';
+    }
 
     (mkIf powerSave {
       powerManagement.enable = true;
@@ -36,7 +45,7 @@ in
       environment.variables = {
         LIBVA_DRIVER_NAME = "intel";
         __GLX_VENDOR_LIBRARY_NAME = "mesa";
-        MY_AQ_DRM_ORDER = "${intelCard} ${nvidiaCard}";
+        AQ_DRM_DEVICES = "${intelCard}:${nvidiaCard}";
       };
     })
 
@@ -60,7 +69,7 @@ in
       environment.variables = {
         LIBVA_DRIVER_NAME = "nvidia";
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-        MY_AQ_DRM_ORDER = "${nvidiaCard} ${intelCard}";
+        AQ_DRM_DEVICES = "${nvidiaCard}:${intelCard}";
       };
     })
   ];
