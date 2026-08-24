@@ -6,4 +6,10 @@
     enable = true;
     theme = "catppuccin-mocha";
   };
+
+  environment.systemPackages = [ pkgs.vanilla-dmz ];
+  services.displayManager.sddm.settings.Theme = {
+    CursorTheme = "DMZ-Black";
+    CursorSize = 24;
+  };
 }
