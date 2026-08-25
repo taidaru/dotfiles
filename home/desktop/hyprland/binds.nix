@@ -3,16 +3,15 @@
   wayland.windowManager.hyprland.settings = {
     bind = [
       # Apps
-      "$mainMod,       Q, exec, $terminal"
-      "$mainMod,       R, exec, noctalia msg panel-toggle launcher"
-      "$mainMod,       A, exec, noctalia msg panel-toggle control-center"
-      "$mainMod,       Escape, exec, noctalia msg session"
-      "$mainMod,       D, exec, pkill -SIGUSR1 wayscriber"
-      "$mainMod,       E, exec, $fileManager"
-      "$mainMod,       V, exec, cliphist list | $menu --dmenu | cliphist decode | wl-copy"
-      "$mainMod,       L, exec, loginctl lock-session"
-      "$mainMod,       P, exec, hyprpicker -an"
-      ", Print, exec, grimblast --notify --freeze copysave area"
+      "$mainMod,       Q,      exec, $terminal"
+      "$mainMod,       R,      exec, noctalia msg panel-toggle launcher"
+      "$mainMod,       A,      exec, noctalia msg panel-toggle control-center"
+      "$mainMod,       E,      exec, $fileManager"
+      "$mainMod,       V,      exec, noctalia msg panel-toggle clipboard"
+      ",               Print,  exec, noctalia msg screenshot-region"
+      # "$mainMod,       L,      exec, loginctl lock-session"
+      # "$mainMod,       P,      exec, hyprpicker -an"
+      # "$mainMod,       Escape, exec, noctalia msg session"
 
       # Window control
       "$mainMod,       C, killactive,"
@@ -23,10 +22,10 @@
       "$mainMod SHIFT, S, movetoworkspace, special:magic"
 
       # Moving focus
-      "$mainMod, left, movefocus, l"
+      "$mainMod, left,  movefocus, l"
       "$mainMod, right, movefocus, r"
-      "$mainMod, up, movefocus, u"
-      "$mainMod, down, movefocus, d"
+      "$mainMod, up,    movefocus, u"
+      "$mainMod, down,  movefocus, d"
 
       # Moving windows
       "$mainMod SHIFT, left,  swapwindow, l"
