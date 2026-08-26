@@ -43,6 +43,6 @@
       fd
     ];
 
-    extraLuaConfig = builtins.readFile ./neovim.lua;
+    initLua = builtins.readFile ./neovim.lua;
   };
 }
