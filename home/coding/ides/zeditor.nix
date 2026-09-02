@@ -75,7 +75,7 @@
         light = "Noctalia Light";
         dark = "Noctalia Dark";
       };
-      proxy = "socks5://127.0.0.1:20217";
+      proxy = "socks5://127.0.0.1:2080";
     };
   };
 }

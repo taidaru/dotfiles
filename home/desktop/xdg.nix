@@ -82,7 +82,7 @@
       vesktop = {
         name = "Vesktop";
         genericName = "VoIP social platform";
-        exec = "${pkgs.vesktop}/bin/vesktop --ozone-platform=wayland --enable-features=WaylandWindowDecorations --proxy-server=socks5://127.0.0.1:20217";
+        exec = "${pkgs.vesktop}/bin/vesktop --ozone-platform=wayland --enable-features=WaylandWindowDecorations --proxy-server=socks5://127.0.0.1:2080";
         icon = "vesktop";
         type = "Application";
         categories = [
