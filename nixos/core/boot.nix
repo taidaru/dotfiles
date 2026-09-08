@@ -33,7 +33,7 @@
     # initrd.systemd.tpm2.enable = false;
     # initrd.services.lvm.enable = false;
     initrd.compressorArgs = [ "-19" "-T0" ];
-    kernelParams = [ "quiet" "splash" "udev.log_level=3" "rd.systemd.show_status=false" "systemd.show_status=false" ]; #  "vt.global_cursor_default=0" 
+    kernelParams = [ "ppp_generic" "ppp_mppe" "quiet" "splash" "udev.log_level=3" "rd.systemd.show_status=false" "systemd.show_status=false" ]; #  "vt.global_cursor_default=0" 
   };
 
   systemd.settings.Manager.RebootWatchdogSec = "0";

@@ -22,6 +22,7 @@
       showmethekey
       silicon
       proxychains
+      pptp
       
       alsa-utils
       alsa-tools

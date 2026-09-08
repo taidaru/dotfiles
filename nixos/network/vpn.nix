@@ -1,23 +1,23 @@
 { pkgs, ... }:
 {
   environment.systemPackages = [
-    pkgs.sing-box
+    pkgs.xray
   ];
 
-  systemd.services.sing-box-custom = {
-    description = "Sing-Box Custom Service with Local Config";
+  systemd.services.my_xray = {
+    description = "Xray Service with Local Config";
 
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
 
     unitConfig = {
-      ConditionPathExists = "/persist/sing-box/config.json";
+      ConditionPathExists = "/persist/vpn/config.json";
     };
 
     serviceConfig = {
       Type = "simple";
 
-      ExecStart = "${pkgs.sing-box}/bin/sing-box run -c /persist/sing-box/config.json";
+      ExecStart = "${pkgs.xray}/bin/xray run -c /persist/vpn/config.json";
 
       Restart = "on-failure";
       RestartSec = "5s";
