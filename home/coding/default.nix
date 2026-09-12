@@ -9,5 +9,7 @@
     ./python.nix
     ./rust.nix
     ./go.nix
+    ./zig.nix
+    ./cpp.nix
   ];
 }

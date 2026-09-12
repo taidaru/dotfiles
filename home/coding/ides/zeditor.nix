@@ -72,8 +72,8 @@
       buffer_font_size = 15;
       theme = {
         mode = "dark";
-        light = "Noctalia Light";
-        dark = "Noctalia Dark";
+        light = "One Light";
+        dark = "One Dark";
       };
       proxy = "socks5://127.0.0.1:2080";
     };

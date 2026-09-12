@@ -1,3 +1,3 @@
 {
-  time.timeZone = "Asia/Singapore";
+  time.timeZone = "Asia/Krasnoyarsk";
 }

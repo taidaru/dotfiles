@@ -10,6 +10,7 @@
     [ ]
     ++ (with unstable; [
       claude-code
+      antigravity-cli
     ]);
 
 }
