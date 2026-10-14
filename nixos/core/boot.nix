@@ -7,6 +7,7 @@
       grub = {
         enable = true;
         efiSupport = true;
+        configurationLimit = 5;
         device = "nodev";
         useOSProber = true;
         theme = pkgs.catppuccin-grub; # .override { flavor = "mocha"; }

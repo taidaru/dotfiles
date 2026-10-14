@@ -1,6 +1,7 @@
 {
   pkgs,
   unstable,
+  inputs,
   ...
 }:
 {
@@ -17,6 +18,7 @@
       transmission_4-gtk
       qalculate-qt
       sqlitestudio
+      tor-browser
     ]
     ++ (with unstable; [
       # eww

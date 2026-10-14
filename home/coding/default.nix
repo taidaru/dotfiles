@@ -11,5 +11,7 @@
     ./go.nix
     ./zig.nix
     ./cpp.nix
+    ./octave.nix
+    ./android.nix
   ];
 }

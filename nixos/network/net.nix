@@ -1,7 +1,4 @@
 {
-  networking.networkmanager.enable = true;
-  # programs.nm-applet.enable = true;
-
   systemd.services.NetworkManager-wait-online.enable = false;
 
   networking.firewall = {
@@ -22,4 +19,9 @@
     };
   };
 
+  networking.wireless.iwd.enable = true;
+
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
 }

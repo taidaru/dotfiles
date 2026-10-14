@@ -6,5 +6,6 @@
     git-filter-repo
     cargo-dist
     just
+    uv
   ];
 }
