@@ -10,6 +10,7 @@
     shellAliases = {
       sw = "nh os switch";
       upd = "nh os switch --update";
+      kali = "distrobox enter kali";
       # hms = "nh home switch";
     };
 
