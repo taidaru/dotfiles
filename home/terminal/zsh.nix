@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -12,7 +12,7 @@
     shellAliases = {
       sw = "nh os switch";
       upd = "nh os switch --update";
-      kali = "distrobox enter kali";
+      kali = "distrobox enter kali -- zsh";
       # hms = "nh home switch";
     };
 
@@ -38,8 +38,9 @@
       }
     ];
 
-    initContent = ''
+    initContent = lib.mkBefore ''
       if [[ -n $CONTAINER_ID ]]; then
+        ZSH_DISABLE_COMPFIX=true
         path+=(/run/host/run/current-system/etc/profiles/per-user/$USER/bin /run/host/run/current-system/sw/bin)
       fi
     '';
