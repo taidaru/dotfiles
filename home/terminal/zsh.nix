@@ -7,6 +7,8 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    sessionVariables.ZSH_DISABLE_COMPFIX = "true";
+
     shellAliases = {
       sw = "nh os switch";
       upd = "nh os switch --update";
@@ -35,6 +37,12 @@
         src = pkgs.zsh-autocomplete;
       }
     ];
+
+    initContent = ''
+      if [[ -n $CONTAINER_ID ]]; then
+        path+=(/run/host/run/current-system/etc/profiles/per-user/$USER/bin /run/host/run/current-system/sw/bin)
+      fi
+    '';
 
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
