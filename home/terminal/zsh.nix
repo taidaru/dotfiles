@@ -12,7 +12,7 @@
     shellAliases = {
       sw = "nh os switch";
       upd = "nh os switch --update";
-      kali = "distrobox enter kali -- zsh";
+      kali = "distrobox enter --root kali -- zsh";
       # hms = "nh home switch";
     };
 
