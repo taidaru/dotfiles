@@ -19,6 +19,7 @@
       qalculate-qt
       sqlitestudio
       tor-browser
+      wayscriber
     ]
     ++ (with unstable; [
       # eww

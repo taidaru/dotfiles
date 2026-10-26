@@ -9,6 +9,7 @@
       "$mainMod,       E,      exec, $fileManager"
       "$mainMod,       V,      exec, noctalia msg panel-toggle clipboard"
       ",               Print,  exec, noctalia msg screenshot-region"
+      "$mainMod,       D,      exec, wayscriber --daemon-toggle"
       # "$mainMod,       L,      exec, loginctl lock-session"
       # "$mainMod,       P,      exec, hyprpicker -an"
       # "$mainMod,       Escape, exec, noctalia msg session"
