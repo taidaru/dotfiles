@@ -12,7 +12,6 @@
     ./zig.nix
     ./cpp.nix
     ./octave.nix
-    ./android.nix
     ./reverse.nix
   ];
 }

@@ -32,6 +32,8 @@
       lavat
       genact
 
+      sshpass
+
       # wtype
       # bemoji
       # playerctl
